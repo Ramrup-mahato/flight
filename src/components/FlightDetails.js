@@ -5,7 +5,7 @@ const FlightDetails = ({ flights }) => {
     return (
         <div className="max-w-xl mx-auto p-2 rounded flex flex-col gap-2">
             {
-                flights?.searchAirplane.length > 0 ?
+                flights?.searchAirplane?.length > 0 ?
                     <>
                         {flights?.searchAirplane?.map((ele, i) => (
                             <div key={i} className='flex gap-3 justify-between rounded-lg bg-blue-50 hover:bg-blue-100 cursor-pointer py-2  px-3 shadow-xl shadow-gray-600'>
