@@ -53,10 +53,7 @@ const HomeController = () => {
 
     const searchFlightsSuggestion = async (name, val) => {
 
-        setFlight((ele) => ({
-            ...ele,
-            loadingSugg: true
-        }))
+
         const options = {
             method: 'GET',
             url: `https://sky-scrapper.p.rapidapi.com/api/v1/flights/searchAirport?query=${val}&locale=en-US`,
@@ -67,6 +64,10 @@ const HomeController = () => {
         };
         try {
             if (name === 'from') {
+                setFlight((ele) => ({
+                    ...ele,
+                    loadingSugg: true
+                }))
                 const response = await axios.request(options);
                 if (response?.data?.status) {
 
@@ -77,6 +78,10 @@ const HomeController = () => {
                     }))
                 }
             } else if (name === 'to') {
+                setFlight((ele) => ({
+                    ...ele,
+                    loadingSugg: true
+                }))
                 const response = await axios.request(options);
                 if (response?.data?.status) {
                     setFlight((ele) => ({
@@ -108,7 +113,7 @@ const HomeController = () => {
                 journeyType: "one_way",
                 currency: 'USD',
                 destinationEntityId: flight.toEle?.entityId,
-                
+
                 date: flight.departDate,
             },
             headers: {
